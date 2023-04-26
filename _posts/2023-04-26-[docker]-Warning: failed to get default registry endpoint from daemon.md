@@ -14,9 +14,13 @@ Warning: failed to get default registry endpoint from daemon (error during conne
 error during connect: Post https://192.168.99.100:2376/v1.37/images/create?fromImage=nextcloud&tag=latest: dial tcp 192.168.99.100:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
 ```
 
-A:
+A
+m1:
 
 your docker CLI cannot work without daemon. Run the Docker daemon (you probably have an icon on your desktop) and once it reports that it is ready, try again your commands.
 
 ref:
 https://stackoverflow.com/questions/43058226/docker-warning-failed-to-get-default-registry-endpoint-from-daemon
+
+m2:
+run kitematic, done.
