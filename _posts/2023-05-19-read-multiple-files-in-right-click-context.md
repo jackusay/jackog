@@ -28,3 +28,6 @@ echo %*
 
 result:
 every instance recieve one parameter.
+
+ref
+https://superuser.com/questions/1196100/custom-windows-context-menu-shell-command-targetting-documents-docx-and-pdf
