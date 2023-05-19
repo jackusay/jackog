@@ -56,3 +56,6 @@ echo %*
 
 pause
 ```
+
+ref
+https://github.com/zenden2k/context-menu-launcher
