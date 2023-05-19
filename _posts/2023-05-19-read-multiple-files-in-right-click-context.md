@@ -34,6 +34,10 @@ https://superuser.com/questions/1196100/custom-windows-context-menu-shell-comman
 
 ## useful
 
+### context-menu-launcher
+
+depends on 3rd exe
+
 ```reg
 Windows Registry Editor Version 5.00
 
