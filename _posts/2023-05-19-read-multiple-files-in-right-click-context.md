@@ -66,6 +66,9 @@ https://github.com/zenden2k/context-menu-launcher
 
 ### https://github.com/ge9/ExecuteCommand-Pipe
 
+Register as a class
+Simply double-click to run ExecuteCommandXXXX.exe
+
 ```reg
 Windows Registry Editor Version 5.00
 
@@ -91,6 +94,7 @@ Windows Registry Editor Version 5.00
 
 it works.
 
+---
 no sure how to input parameter
 
 ```reg
