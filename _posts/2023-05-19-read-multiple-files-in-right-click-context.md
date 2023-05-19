@@ -63,3 +63,38 @@ pause
 
 ref
 https://github.com/zenden2k/context-menu-launcher
+
+### https://github.com/ge9/ExecuteCommand-Pipe
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\makeTx]
+"MUIVerb"="AmakeTx"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\makeTx\command]
+"DelegateExecute"="{FFA07888-75BD-471A-B325-59274E73400A}"
+```
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{FFA07888-75BD-471A-B325-59274E73400A}]
+"AppId"="{FFA07888-75BD-471A-B325-59274E73400A}"
+@="ExecuteCommand Verb Sample"
+
+[HKEY_CURRENT_USER\SOFTWARE\Classes\CLSID\{FFA07888-75BD-471A-B325-59274E73400A}\LocalServer32]
+@="\"C:\\Users\\peter\\Downloads\\build\\ExecuteCommand400A.exe\" p \"C:\\Program Files\\Git\\bin\\bash.exe\" -c \"cat > $HOME/out.txt\" "
+```
+
+* After the modification, rename "LocalServer32" to any other name and then return it back.
+
+it works.
+
+no sure how to input parameter
+
+```reg
+@="\"C:\\Users\\peter\\Downloads\\build\\ExecuteCommand400A.exe\" p \"C:\\Users\\peter\\a4\\b.bat\" "
+```
+
+this no work.
