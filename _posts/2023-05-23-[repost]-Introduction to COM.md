@@ -55,3 +55,16 @@ QueryInterface() - Requests an interface pointer from a COM object. You use this
 
 source: 
 https://www.codeproject.com/Articles/633/Introduction-to-COM-What-It-Is-and-How-to-Use-It
+
+##theory
+
+COM is not an object-oriented language but a standard.
+COM specifies an object model and programming requirements that enable COM objects (also called COM components, or sometimes simply objects) to interact with other objects.
+COM is referred to as a binary standard;
+
+COM can use any lang.
+The only language requirement for COM is that code is generated in a language that can create structures of pointers and, either explicitly or implicitly, call functions through pointers.
+
+COM requires that the only way to gain access to the methods (function) of an interface is through a pointer to the interface.
+only way to manipulate the data associated with an object is through an interface on the object.
+  https://learn.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal
