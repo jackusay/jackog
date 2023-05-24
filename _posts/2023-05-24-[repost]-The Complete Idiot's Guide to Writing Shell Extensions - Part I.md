@@ -8,9 +8,23 @@ The Complete Idiot's Guide to Writing Shell Extensions - Part I
 
 make an extension that just pops up a message box to show that it's working. We'll hook the extension up to .TXT files
 
-use VC, run the AppWizard and make a new ATL COM program.
-add `The Initialization Interface`
-add `The Interface for Interacting with the Context Menu`
+### use VC, run the AppWizard and make a new ATL COM program.
+### add `The Initialization Interface`
+* add `IShellExtInit` in `COM_MAP`
+
+The COM_MAP is how ATL implements QueryInterface(). It tells ATL what interfaces other programs can retrieve from our COM objects.
+If we return `S_OK`, then Explorer will call QueryInterface() again and get a pointer to another interface: `IContextMenu`.
+
+### add `The Interface for Interacting with the Context Menu`
+* add `IContextMenu` in `COM_MAP`
+
+IContextMenu has three methods:
+```cpp
+  STDMETHODIMP GetCommandString(UINT, UINT, UINT*, LPSTR, UINT); // Carrying out the user's selection
+  STDMETHODIMP InvokeCommand(LPCMINVOKECOMMANDINFO); // show info in status bar; the status bar will show fly-by help
+  STDMETHODIMP QueryContextMenu(HMENU, UINT, UINT, UINT, UINT); // add context menu
+```
+### register
 
 ## debug
 
@@ -41,4 +55,3 @@ HKEY_CLASSES_ROOT\txtfile\ShellEx\ContextMenuHandlers\SimpleShlExt
 ```
 
 This has a couple of side effects
-
