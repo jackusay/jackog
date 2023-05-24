@@ -58,3 +58,4 @@ This has a couple of side effects
 
 * ...
 * https://stackoverflow.com/questions/2123762/add-menu-item-to-windows-context-menu-only-for-specific-filetype/47745854#47745854
+* https://stackoverflow.com/questions/46930511/add-entry-to-right-click-menu-for-a-specific-filetype
