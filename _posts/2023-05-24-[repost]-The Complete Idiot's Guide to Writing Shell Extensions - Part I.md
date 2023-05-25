@@ -12,7 +12,12 @@ make an extension that just pops up a message box to show that it's working. We'
 ### add `The Initialization Interface`
 * add `IShellExtInit` in `COM_MAP`
 
+When our shell extension is loaded, Explorer calls our QueryInterface() function to get a pointer to an `IShellExtInit` interface.
+
+To add this to our COM object: add `IShellExtInit` in `COM_MAP`
+
 The COM_MAP is how ATL implements QueryInterface(). It tells ATL what interfaces other programs can retrieve from our COM objects.
+
 If we return `S_OK`, then Explorer will call QueryInterface() again and get a pointer to another interface: `IContextMenu`.
 
 ### add `The Interface for Interacting with the Context Menu`
