@@ -38,25 +38,53 @@ An interface ID, or **IID**, is a GUID that names an interface.
 An **HRESULT** is an integral type used by COM to return error and success codes. 
 It is not a "handle" to anything, despite the H prefix.
 
-When you create a COM object, you tell the COM library what interface you need. If the object is created successfully, the COM library returns a pointer to the requested interface. You can then call methods through that pointer, just as if it were a pointer to a regular C++ object.
+When you **create a COM object**, you tell the COM library what interface you need. If the object is created successfully, the COM library returns a pointer to the requested interface. You can then call methods through that pointer, just as if it were a pointer to a regular C++ object.
 
-Whenever a COM method returns a string, that string will be in Unicode.
+Whenever a COM method **returns a string**, that string will be in Unicode.
 If you want to get the string into a more manageable state, you should convert it to a TCHAR string.
 TCHAR and the _t functions (for example, _tcscpy()) are designed to let you handle Unicode and ANSI strings with the same source code.
 
 ## Creating a COM object
 
+To create a COM object and get an interface from the object, you call the COM library API `CoCreateInstance()`.
+
+When you call `CoCreateInstance()`, it handles looking up the CLSID in the registry, reading the location of the server, loading the server into memory, and creating an instance of the coclass you requested.
+
 ...
+
+```cpp
+HRESULT     hr;
+IShellLink* pISL;
+
+hr = CoCreateInstance ( CLSID_ShellLink,         // CLSID of coclass
+                        NULL,                    // not used - aggregation
+                        CLSCTX_INPROC_SERVER,    // type of server
+                        IID_IShellLink,          // IID of interface
+                        (void**) &pISL );        // Pointer to our interface pointer
+
+    if ( SUCCEEDED ( hr ) )
+        {
+        // Call methods using pISL here.
+        }
+    else
+        {
+        // Couldn't create the COM object.  hr holds the error code.
+        }
+```
 
 ## coclass implement
 Every COM interface is derived from IUnknown.
 IUnknown has three methods:
+AddRef()
+Release()
 QueryInterface() - Requests an interface pointer from a COM object. You use this when a coclass implements more than one interface.
+
+## Bringing it All Together - Sample Code
 
 source: 
 https://www.codeproject.com/Articles/633/Introduction-to-COM-What-It-Is-and-How-to-Use-It
 
-##theory
+## theory
 
 COM is not an object-oriented language but a standard.
 COM specifies an object model and programming requirements that enable COM objects (also called COM components, or sometimes simply objects) to interact with other objects.
