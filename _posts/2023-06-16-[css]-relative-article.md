@@ -24,6 +24,7 @@ height: 120px;
 ```
 
 the intro use multi line ellipsis.
+  https://stackoverflow.com/questions/15909489/text-overflow-ellipsis-on-two-lines
 
 result:
 
